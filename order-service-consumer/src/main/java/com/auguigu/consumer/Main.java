@@ -16,7 +16,7 @@ public class Main {
         classPathXmlApplicationContext.start();
         UserService userService = (UserService) classPathXmlApplicationContext.getBean("userService");
         List<User> users = userService.users();
-        users.stream().forEach((e)-> System.out.println(e));
+        //users.stream().forEach((e)-> System.out.println(e));
         System.in.read(); // 按任意键退出
     }
 }
