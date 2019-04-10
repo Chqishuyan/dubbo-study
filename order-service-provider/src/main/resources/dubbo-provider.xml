@@ -15,8 +15,18 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.atguigu.api.UserService" ref="userService" version="1.0.0"/>
+    <!-- timeout:超时时间;毫秒-->
+    <dubbo:service interface="com.atguigu.api.UserService" ref="userService" version="1.0.0"  timeout="5000">
+        <dubbo:method name="users" timeout="1000"></dubbo:method>
+    </dubbo:service>
 
     <!-- 和本地bean一样实现服务 -->
     <bean id="userService" class="com.atguigu.provider.UserServiceImpl" />
+
+    <!-- 超时配置测试
+           规则：
+                1、方法级优先，接口级次之，全局配置再次之。
+                2、如果级别一样，则消费方优先，提供方次之。
+    -->
+    <dubbo:provider timeout="5000"></dubbo:provider>
 </beans>

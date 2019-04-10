@@ -16,6 +16,11 @@ public class UserServiceImpl implements UserService {
         List<User> users = new ArrayList<User>(2);
         users.add(new User("qishuyan    ",0,18,"18349563345","安徽"));
         users.add(new User("wangbdan    ",1,16,"18349563353","安徽"));
+        try {
+            Thread.sleep(3000);//测试dubbo超时配置
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return users;
     }
 }
