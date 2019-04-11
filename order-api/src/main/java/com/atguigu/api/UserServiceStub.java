@@ -1,8 +1,6 @@
-package com.atguigu.consumer;
+package com.atguigu.api;
 
-import com.atguigu.api.UserService;
 import com.atguigu.bean.User;
-import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 import java.util.List;
