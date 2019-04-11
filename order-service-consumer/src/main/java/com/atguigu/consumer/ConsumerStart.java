@@ -1,4 +1,4 @@
-package com.auguigu.consumer;
+package com.atguigu.consumer;
 
 import com.atguigu.api.UserService;
 import com.atguigu.bean.User;
