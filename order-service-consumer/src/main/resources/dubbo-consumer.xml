@@ -17,6 +17,6 @@
 
         <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
         <!-- check:启动时是否检查服务的可用性，默认true-->
-        <!-- version:服务的版本号，与服务提供方一致-->
-        <dubbo:reference id="userService" interface="com.atguigu.api.UserService" timeout="5000"/>
+        <!-- version:服务的版本号，与服务提供方一致,version为*时，随机调用-->
+        <dubbo:reference id="userService" interface="com.atguigu.api.UserService" timeout="1000" version="*" retries="3"/>
 </beans>

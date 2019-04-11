@@ -16,12 +16,21 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <!-- timeout:超时时间;毫秒-->
-    <dubbo:service interface="com.atguigu.api.UserService" ref="userService" version="1.0.0"  timeout="5000">
-        <dubbo:method name="users" timeout="1000"></dubbo:method>
+    <!--retries:重试次数，默认值为2，不包含第一次调用，实际调用次数为retries+1
+        冪等服务建议重试
+        非冪等服务不建议重试（设置retries为0即可）
+     -->
+    <!-- version:版本号-->
+    <dubbo:service interface="com.atguigu.api.UserService" ref="userService" version="1.0.0"  timeout="5000" retries="3">
+       <!-- <dubbo:method name="users" timeout="1000"></dubbo:method>-->
     </dubbo:service>
 
+    <!-- 新版本 -->
+    <dubbo:service interface="com.atguigu.api.UserService" ref="userService2" version="2.0.0"  timeout="5000" retries="3"></dubbo:service>
+
     <!-- 和本地bean一样实现服务 -->
-    <bean id="userService" class="com.atguigu.provider.UserServiceImpl" />
+    <bean id="userService" class="com.atguigu.provider.UserServiceImpl01" />
+    <bean id="userService2" class="com.atguigu.provider.UserServiceImpl02" />
 
     <!-- 超时配置测试
            规则：
