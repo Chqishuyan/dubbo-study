@@ -13,7 +13,11 @@ import java.util.List;
 //@Service
 @Component
 public class UserServiceConsumer {
-    @Reference
+    /**
+     * 1）dubbo使用zookeeper作为注册中心时，若zookeeper宕机，服务提供者和服务消费者还可以通过本地缓存的信息来通讯
+     * 2）dubbo还可以通过直连的方式来消费服务
+     */
+    @Reference(url = "localhost:20883")
     //@Autowired
     UserService userService;
 

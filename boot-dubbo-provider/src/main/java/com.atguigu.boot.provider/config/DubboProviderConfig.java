@@ -27,8 +27,10 @@ public class DubboProviderConfig {
     @Bean
     public RegistryConfig registryConfig(){
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setProtocol("zookeeper");
-        registryConfig.setAddress("localhost:2181");
+        //registryConfig.setProtocol("zookeeper");
+        //registryConfig.setAddress("localhost:2181");
+        //不使用注册中心
+        registryConfig.setAddress("N/A");
         return registryConfig;
     }
 
