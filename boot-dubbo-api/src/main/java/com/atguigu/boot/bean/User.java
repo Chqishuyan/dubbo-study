@@ -1,4 +1,4 @@
-package bean;
+package com.atguigu.boot.bean;
 
 import java.io.Serializable;
 

@@ -1,16 +1,17 @@
 package com.atguigu.boot.consumer;
 
-import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
 
 /**
  * Created by shuyan.qi on 2019/4/11.
  */
-@EnableDubbo
+//@EnableDubbo
+@ImportResource("classpath:boot-dubbo-consumer.xml")
 @SpringBootApplication
 public class BootConsumerStarter {
 

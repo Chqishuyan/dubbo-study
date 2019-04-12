@@ -1,6 +1,6 @@
-package api;
+package com.atguigu.boot.api;
 
-import bean.User;
+import com.atguigu.boot.bean.User;
 
 import java.util.List;
 

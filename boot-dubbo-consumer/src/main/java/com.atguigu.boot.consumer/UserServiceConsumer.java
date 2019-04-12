@@ -1,19 +1,20 @@
 package com.atguigu.boot.consumer;
 
-import api.UserService;
-import bean.User;
-import com.alibaba.dubbo.config.annotation.Reference;
-import org.springframework.stereotype.Service;
+import com.atguigu.boot.api.UserService;
+import com.atguigu.boot.bean.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 /**
  * Created by shuyan.qi on 2019/4/12.
  */
-@Service
+//@Service
 public class UserServiceConsumer {
-    @Reference
+    //@Reference
+    @Autowired
     UserService userService;
+
 
     public void users(){
         List<User> users = userService.getUsers();

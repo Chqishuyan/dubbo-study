@@ -1,7 +1,7 @@
 package com.atguigu.boot.provider.impl;
 
-import api.UserService;
-import bean.User;
+import com.atguigu.boot.api.UserService;
+import com.atguigu.boot.bean.User;
 import com.alibaba.dubbo.config.annotation.Service;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by shuyan.qi on 2019/4/12.
  */
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
 
     @Override
