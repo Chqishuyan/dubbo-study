@@ -1,9 +1,9 @@
 package com.atguigu.boot.consumer;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
 
@@ -11,7 +11,8 @@ import java.io.IOException;
  * Created by shuyan.qi on 2019/4/11.
  */
 //@EnableDubbo
-@ImportResource("classpath:boot-dubbo-consumer.xml")
+//@ImportResource("classpath:boot-dubbo-consumer.xml")
+@DubboComponentScan(basePackages = "com.atguigu.boot.consumer")
 @SpringBootApplication
 public class BootConsumerStarter {
 

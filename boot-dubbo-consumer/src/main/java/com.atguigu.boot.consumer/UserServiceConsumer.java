@@ -1,8 +1,9 @@
 package com.atguigu.boot.consumer;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.atguigu.boot.api.UserService;
 import com.atguigu.boot.bean.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -10,9 +11,10 @@ import java.util.List;
  * Created by shuyan.qi on 2019/4/12.
  */
 //@Service
+@Component
 public class UserServiceConsumer {
-    //@Reference
-    @Autowired
+    @Reference
+    //@Autowired
     UserService userService;
 
 
