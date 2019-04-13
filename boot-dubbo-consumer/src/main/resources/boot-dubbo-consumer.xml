@@ -14,5 +14,5 @@
     <!-- 服务 -->
     <dubbo:reference id="userService" interface="com.atguigu.boot.api.UserService"/>
 
-    <bean id="userServiceConsumer" class="com.atguigu.boot.consumer.UserServiceConsumer"></bean>
+    <bean id="userServiceConsumer" class="com.atguigu.boot.consumer.service.UserServiceConsumer"></bean>
 </beans>

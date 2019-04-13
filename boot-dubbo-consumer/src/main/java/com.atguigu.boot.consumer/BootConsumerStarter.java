@@ -1,9 +1,11 @@
 package com.atguigu.boot.consumer;
 
 import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
+import com.atguigu.boot.consumer.service.UserServiceConsumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.io.IOException;
 
@@ -13,13 +15,14 @@ import java.io.IOException;
 //@EnableDubbo
 //@ImportResource("classpath:boot-dubbo-consumer.xml")
 @DubboComponentScan(basePackages = "com.atguigu.boot.consumer")
+@EnableWebMvc()
 @SpringBootApplication
 public class BootConsumerStarter {
 
     public static void main(String[] args) throws IOException {
         ConfigurableApplicationContext run = SpringApplication.run(BootConsumerStarter.class, args);
-        UserServiceConsumer userServiceConsumer = (UserServiceConsumer)run.getBean("userServiceConsumer");
+       /* UserServiceConsumer userServiceConsumer = (UserServiceConsumer)run.getBean("userServiceConsumer");
         userServiceConsumer.users();
-        System.in.read();
+        System.in.read();*/
     }
 }

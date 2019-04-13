@@ -1,12 +1,10 @@
 package com.atguigu.boot.provider.config;
 
-import com.alibaba.dubbo.config.*;
-import com.atguigu.boot.api.UserService;
+import com.alibaba.dubbo.config.ApplicationConfig;
+import com.alibaba.dubbo.config.ProtocolConfig;
+import com.alibaba.dubbo.config.RegistryConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * dubbo提供者配置类
@@ -27,10 +25,10 @@ public class DubboProviderConfig {
     @Bean
     public RegistryConfig registryConfig(){
         RegistryConfig registryConfig = new RegistryConfig();
-        //registryConfig.setProtocol("zookeeper");
-        //registryConfig.setAddress("localhost:2181");
+        registryConfig.setProtocol("zookeeper");
+        registryConfig.setAddress("localhost:2181");
         //不使用注册中心
-        registryConfig.setAddress("N/A");
+        //registryConfig.setAddress("N/A");
         return registryConfig;
     }
 
@@ -39,6 +37,9 @@ public class DubboProviderConfig {
     public ProtocolConfig protocolConfig(){
         ProtocolConfig protocolConfig = new ProtocolConfig();
         protocolConfig.setName("dubbo");
+        //测试集群
+        //protocolConfig.setPort(20881);
+        //protocolConfig.setPort(20882);
         protocolConfig.setPort(20883);
         return protocolConfig;
     }
