@@ -20,7 +20,7 @@ import java.io.IOException;
 //@EnableHystrix//开启Hystrix的服务容错
 @SpringBootApplication
 public class BootProviderStarter {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         SpringApplication.run(BootProviderStarter.class,args);
     }
 }
