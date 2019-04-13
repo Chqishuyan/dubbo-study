@@ -17,10 +17,10 @@ import java.io.IOException;
 //@EnableDubbo
 //@ImportResource("classpath:boot-dubbo-provider.xml")
 @DubboComponentScan(basePackages = "com.atguigu.boot.provider")
+//@EnableHystrix//开启Hystrix的服务容错
 @SpringBootApplication
 public class BootProviderStarter {
     public static void main(String[] args) throws IOException {
         SpringApplication.run(BootProviderStarter.class,args);
-        System.in.read();
     }
 }

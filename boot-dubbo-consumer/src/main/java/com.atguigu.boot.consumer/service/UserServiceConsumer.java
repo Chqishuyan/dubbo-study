@@ -4,8 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.atguigu.boot.api.UserEditService;
 import com.atguigu.boot.api.UserService;
 import com.atguigu.boot.bean.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,11 +28,17 @@ public class UserServiceConsumer {
     UserEditService userEditService;
 
 
+    @HystrixCommand(fallbackMethod="hello")
     public List<User> users(){
         return userService.getUsers();
     }
 
     public void add(){
         userEditService.add(null);
+    }
+
+
+    public List<User> hello(){
+        return Arrays.asList(new User("test",1,0,"test","test"));
     }
 }

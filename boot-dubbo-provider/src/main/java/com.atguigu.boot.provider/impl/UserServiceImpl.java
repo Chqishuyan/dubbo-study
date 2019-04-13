@@ -5,6 +5,7 @@ import com.atguigu.boot.api.UserService;
 import com.atguigu.boot.bean.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,17 +23,21 @@ import java.util.List;
 @Service(cluster = "failover",retries = 2,timeout = 2000)
 //@Component
 public class UserServiceImpl implements UserService {
+
+   // @HystrixCommand(fallbackMethod="hello")
     @Override
     public List<User> getUsers() {
         System.out.println("method getUsers...");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(Math.random() > 0.5d){
+            throw new RuntimeException();
         }
         List<User> users = new ArrayList<User>(2);
         users.add(new User("qishuyan    ",0,18,"18349563345","安徽"));
         users.add(new User("wangbdan    ",1,16,"18349563353","安徽"));
         return users;
+    }
+
+    public List<User> hello(){
+        return Arrays.asList(new User("test",1,0,"test","test"));
     }
 }
